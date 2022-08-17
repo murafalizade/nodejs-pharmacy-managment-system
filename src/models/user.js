@@ -1,4 +1,5 @@
-const {Sequelize,DataTypes} = require("sequelize");
+const {DataTypes} = require("sequelize");
+const Cyrption = require("../util/cryption");
 
 module.exports = (sequelize) =>{
   const User = sequelize.define('user',{
@@ -10,7 +11,7 @@ module.exports = (sequelize) =>{
     email:{
       type:DataTypes.STRING,
       allowNull:false,
-      unique:true
+      // unique:true
     },
     password:{
       type:DataTypes.STRING,
