@@ -1,11 +1,4 @@
 const MedicineService = require("../service/medicineService");
-const path = require("path");
-const { fileURLToPath } =  require("url");
-
-
-// 👇️ "/home/john/Desktop/javascript"
-// const __dirname = path.dirname();
-
 
 const medicineService = new MedicineService();
 
