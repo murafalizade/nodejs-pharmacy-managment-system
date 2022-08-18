@@ -21,13 +21,13 @@ model.user.hasMany(model.order);
 model.order.hasMany(model.orderDetail, {as:"orderDetails"});
 model.orderDetail.belongsTo(model.order);
 
-sequelize
-   .sync({ alter: true })
-   .then(() => {
-     console.log("Drop and re-sync db.");
-   })
-   .catch((err) => {
-     console.log("Error:", err);
-   });
+// sequelize
+//    .sync({ alter: true })
+//    .then(() => {
+//      console.log("Drop and re-sync db.");
+//    })
+//    .catch((err) => {
+//      console.log("Error:", err);
+//    });
 
 module.exports = {sequelize,model};

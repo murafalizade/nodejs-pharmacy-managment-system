@@ -9,15 +9,25 @@ class UserService {
   }
 
   async postUser(data) {
-    const user = await model.user.create(data);
-    return user.id.toString();
+    const res = "";
+    try {
+      const user = await model.user.create(data);
+      res = user.id.toString();
+    } catch (err) {
+      return err;
+    }
+    return res;
   }
 
   async getById(id) {
-    const user = await model.user.findByPk(id, {
-      attributes: ["id", "email", "password"],
+    try {
+      const user = await model.user.findByPk(id, {
+        attributes: ["id", "email", "password"],
       });
-    return user;
+      return user;
+    } catch (err) {
+      return "User not found";
+    }
   }
 
   async updateUser(data, id) {
