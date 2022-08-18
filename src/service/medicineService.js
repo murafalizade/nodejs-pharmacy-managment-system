@@ -36,6 +36,18 @@ class MedicineService {
     await model.medicine.update({image},{ where: { id } });
     return id.toString();
   }
+
+  async getAllByPage(page, limit) {
+    const medicines = await model.medicine.findAndCountAll({
+      attributes: ["id", "name", "description", "price", "count"],
+      include: ["depo"],
+      offset: (page - 1) * limit,
+      limit,
+    });
+    return medicines;
+  }
 }
+
+
 
 module.exports = MedicineService;

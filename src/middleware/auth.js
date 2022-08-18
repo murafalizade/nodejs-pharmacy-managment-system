@@ -5,17 +5,17 @@ dotenv.config();
 
 const userService = new UserService();
 
-module.exports.auth = (req, res, next) => {
+module.exports.auth = async (req, res, next) => {
   try {
     if (req.headers.authorization) {
       req.headers.authorization.split(" ")[0] === "Bearer" ? "" : res.status(401).send("Unauthorized");
       const token = req.headers.authorization.split(" ")[1];
       const decoded = Jwt.verify(token);
-      const user = userService.getById(decoded.id);
+      const user = await userService.getById(decoded.id);
       if(!user) {
         return res.status(400).send("User not found");
       }
-      req.userId = decoded.id;
+      req.userId = user.id;
     } else {
       return res.status(401).send("Unauthorized");
     }

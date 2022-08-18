@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world!</title>
+  </head>
+  <body
+    style="
+      text-align: center;"
+  >
+    <h1>Medicine Shop</h1>
+    <p>{{date}}</p>
+    <table style="text-align:center;margin-left: 45%;">
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each order.orderDetails}}
+        <tr>
+          <td>{{this.count}}</td>
+          <td>{{this.totalPrice}}</td>
+        </tr>
+        {{/each}}
+        <br />
+      </tbody>
+    </table>
+    <br />
+    <div style="text-align:center;">
+      <p>total: {{order.totalCount}}</p>
+      <p>Price:{{order.totalPrice}}</p>
+    </div>
+  </body>
+</html>

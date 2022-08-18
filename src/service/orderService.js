@@ -1,11 +1,10 @@
 const { model } = require("../config/index");
-const MedicineService = require("./medicineService");
 
 class OrderService {
   async getAll() {
     const order = await model.order.findAll({
-      attributes: ["id", "count", "totalPrice"],
-      include: [model.medicine, model.user],
+      attributes: ["id", "totalCount", "totalPrice"],
+      include: ["orderDetails",model.user],
     });
     return order;
   }
@@ -17,8 +16,8 @@ class OrderService {
 
   async getById(id) {
     const order = await model.order.findByPk(id, {
-      attributes: ["id", "count", "totalPrice"],
-      include: [model.medicine, model.user],
+      attributes: ["id", "totalCount", "totalPrice"],
+      include: ["orderDetails", model.user],
     });
     return order;
   }

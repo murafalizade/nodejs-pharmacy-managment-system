@@ -5,17 +5,21 @@ const sequelize = new Sequelize(
 ); // Example for postgres
 
 const model = {}
+
 model.depo = require("../models/depo")(sequelize);
 model.medicine = require("../models/medicine")(sequelize);
-model.order = require("../models/order")(sequelize);
+model.orderDetail = require("../models/orderDetail")(sequelize);
 model.user = require("../models/user")(sequelize);
+model.order = require("../models/order")(sequelize);
 
-model.order.belongsTo(model.medicine);
-model.medicine.hasOne(model.order);
-model.order.belongsTo(model.user);
-model.user.hasOne(model.order);
+model.orderDetail.belongsTo(model.medicine);
+model.medicine.hasOne(model.orderDetail);
 model.depo.hasMany(model.medicine, { as: "medicines" });
 model.medicine.belongsTo(model.depo);
+model.order.belongsTo(model.user);
+model.user.hasMany(model.order);
+model.order.hasMany(model.orderDetail, {as:"orderDetails"});
+model.orderDetail.belongsTo(model.order);
 
 sequelize
    .sync({ alter: true })

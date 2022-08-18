@@ -1,6 +1,4 @@
-const {  DataTypes } = require("sequelize");
-const Medicine = require("./medicine");
-const User = require("./user");
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   const Order = sequelize.define("order", {
@@ -9,21 +7,17 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    count: {
+    totalCount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     totalPrice: {
-      type: DataTypes.DOUBLE
+      type: DataTypes.DOUBLE,
+      defaultValue: 0,
+    },
+    file:{
+      type: DataTypes.STRING,
     }
   });
   return Order;
 };
-
-/*
-        public int Id { get; set; }
-        public int MedicineId { get; set; }
-        public int Count { get; set; }
-        public double TotalPrice { get; set; }
-        public int SellerId { get; set; }
-        public string OrderId { get; set; }*/
