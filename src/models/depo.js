@@ -1,8 +1,7 @@
-const { Sequelize, DataTypes } = require("sequelize");
-const Medicine = require('./medicine');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Depo = sequelize.define("depo", {
+  const Depo = sequelize.define('depo', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,

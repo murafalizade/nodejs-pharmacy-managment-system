@@ -28,6 +28,6 @@ const outputFile = './swagger-output.json';
 const endpointsFiles = ['./src/index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-  // eslint-disable-line global-require
+  // eslint-disable-next-line global-require
   require('./src/index'); // Your project's root file
 });

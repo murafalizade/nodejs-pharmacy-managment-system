@@ -1,8 +1,7 @@
-const { DataTypes } = require("sequelize");
-
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Medicine = sequelize.define("medicine", {
+  const Medicine = sequelize.define('medicine', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -26,9 +25,9 @@ module.exports = (sequelize) => {
     expDate: {
       type: DataTypes.DATE,
     },
-    image:{
+    image: {
       type: DataTypes.STRING,
-    }
+    },
   });
   return Medicine;
 };

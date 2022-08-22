@@ -1,23 +1,31 @@
-const router = require("express").Router();
-const { getAll, postMedicine, deleteMedicine, getById, updateMedicine, uploadImage, downloadImage, getByPage } = require("../controller/medicineController");
-const { auth } = require("../middleware/auth");
-const upload = require("../util/fileUploader");
+const router = require('express').Router();
+const {
+  getAll,
+  postMedicine,
+  deleteMedicine,
+  getById,
+  updateMedicine,
+  uploadImage,
+  downloadImage,
+  getByPage,
+} = require('../controller/medicineController');
+const { auth } = require('../middleware/auth');
+const upload = require('../util/fileUploader');
 
+router.get('/medicines', auth, getAll);
 
-router.get("/medicines",auth, getAll);
+router.post('/medicine', auth, postMedicine);
 
-router.post("/medicine", auth,postMedicine);
+router.delete('/medicine/:id', auth, deleteMedicine);
 
-router.delete("/medicine/:id",auth, deleteMedicine);
+router.get('/medicine/:id', auth, getById);
 
-router.get("/medicine/:id",auth, getById);
+router.put('/medicine/:id', auth, updateMedicine);
 
-router.put("/medicine/:id",auth, updateMedicine);
+router.put('/medicine/:id/image', auth, upload.single('image'), uploadImage);
 
-router.put('/medicine/:id/image', auth, upload.single('image'), uploadImage)
+router.get('/medicine/image/:fileName', downloadImage);
 
-router.get('/medicine/image/:fileName',downloadImage)
-
-router.get("/medicines/pagination",auth, getByPage);
+router.get('/medicines/pagination', auth, getByPage);
 
 module.exports = router;

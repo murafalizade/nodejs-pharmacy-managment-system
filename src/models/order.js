@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Order = sequelize.define("order", {
+  const Order = sequelize.define('order', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -15,9 +15,9 @@ module.exports = (sequelize) => {
       type: DataTypes.DOUBLE,
       defaultValue: 0,
     },
-    file:{
+    file: {
       type: DataTypes.STRING,
-    }
+    },
   });
   return Order;
 };

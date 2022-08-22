@@ -1,10 +1,10 @@
-const { model } = require("../config/index");
+const { model } = require('../config/index');
 
 class DepoService {
   async getAll() {
     const depos = await model.depo.findAll({
-      attributes: ["id", "name", "location"],
-      include: ["medicines"],
+      attributes: ['id', 'name', 'location'],
+      include: ['medicines'],
     });
     return depos;
   }
@@ -16,8 +16,8 @@ class DepoService {
 
   async getById(id) {
     const depo = await model.depo.findByPk(id, {
-      attributes: ["id", "name", "location"],
-      include: ["medicines"],
+      attributes: ['id', 'name', 'location'],
+      include: ['medicines'],
     });
     return depo;
   }

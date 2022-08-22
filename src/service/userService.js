@@ -1,32 +1,27 @@
-const { model } = require("../config/index");
+const { model } = require('../config/index');
 
 class UserService {
   async getAll() {
     const user = await model.user.findAll({
-      attributes: ["id", "email", "password"],
+      attributes: ['id', 'email', 'password'],
     });
     return user;
   }
 
   async postUser(data) {
-    const res = "";
-    try {
-      const user = await model.user.create(data);
-      res = user.id.toString();
-    } catch (err) {
-      return err;
-    }
+    const user = await model.user.create(data);
+    const res = user.id.toString();
     return res;
   }
 
   async getById(id) {
     try {
       const user = await model.user.findByPk(id, {
-        attributes: ["id", "email", "password"],
+        attributes: ['id', 'email', 'password'],
       });
       return user;
     } catch (err) {
-      return "User not found";
+      return 'User not found';
     }
   }
 
@@ -42,7 +37,7 @@ class UserService {
 
   async getUserByEmail(email) {
     const user = await model.user.findOne({
-      attributes: ["id", "email", "password"],
+      attributes: ['id', 'email', 'password'],
       where: { email },
     });
     return user;

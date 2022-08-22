@@ -1,10 +1,10 @@
-const { model } = require("../config/index");
+const { model } = require('../config/index');
 
 class MedicineService {
   async getAll() {
     const medicines = await model.medicine.findAll({
-      attributes: ["id", "name", "description", "price", "count","image"],
-      include: ["depo"],
+      attributes: ['id', 'name', 'description', 'price', 'count', 'image'],
+      include: ['depo'],
     });
     return medicines;
   }
@@ -16,8 +16,8 @@ class MedicineService {
 
   async getById(id) {
     const medicine = await model.medicine.findByPk(id, {
-      attributes: ["id", "name", "description", "price", "count"],
-      include: ["depo"],
+      attributes: ['id', 'name', 'description', 'price', 'count'],
+      include: ['depo'],
     });
     return medicine;
   }
@@ -33,21 +33,19 @@ class MedicineService {
   }
 
   async uploadImage(id, image) {
-    await model.medicine.update({image},{ where: { id } });
+    await model.medicine.update({ image }, { where: { id } });
     return id.toString();
   }
 
   async getAllByPage(page, limit) {
     const medicines = await model.medicine.findAndCountAll({
-      attributes: ["id", "name", "description", "price", "count"],
-      include: ["depo"],
+      attributes: ['id', 'name', 'description', 'price', 'count'],
+      include: ['depo'],
       offset: (page - 1) * limit,
       limit,
     });
     return medicines;
   }
 }
-
-
 
 module.exports = MedicineService;

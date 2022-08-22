@@ -1,8 +1,7 @@
-const {DataTypes} = require("sequelize");
-const Cyrption = require("../util/cryption");
+const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize) =>{
-  const User = sequelize.define("user", {
+module.exports = (sequelize) => {
+  const User = sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -14,17 +13,16 @@ module.exports = (sequelize) =>{
       unique: true,
       validate: {
         isEmail: true,
-        notNull: true
+        notNull: true,
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notNull: true
-      }
+        notNull: true,
+      },
     },
   });
   return User;
-}
-
+};

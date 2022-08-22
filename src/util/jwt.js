@@ -1,9 +1,8 @@
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
 dotenv.config();
 const secret = process.env.SECRET_KEY;
-
 
 class Jwt {
   static sign(payload) {

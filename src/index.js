@@ -25,11 +25,13 @@ const connection = async () => {
   let retries = 5;
   while (retries) {
     try {
+      // eslint-disable-next-line no-await-in-loop
       await sequelize.authenticate();
       break;
     } catch (error) {
       retries -= 1;
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+      // eslint-disable-next-line no-await-in-loop, no-promise-executor-return
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
 };
