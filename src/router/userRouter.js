@@ -10,7 +10,7 @@ const router = require("express").Router();
 
 router.get("/users", auth, getAll);
 
-router.post("/user", auth, postUser);
+router.post("/user", postUser);
 
 router.delete("/user/:id", auth, deleteUser);
 

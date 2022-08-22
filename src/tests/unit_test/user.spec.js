@@ -6,7 +6,7 @@ describe("GET /users", () => {
   it("should return one user", async () => {
     const users = await userService.getAll();
     expect(users).toBeDefined();
-    expect(users.length).toBe(1);
+    expect(users.length).toBe(1)
   });
 
   it("should user created", async () => {

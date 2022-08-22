@@ -1,10 +1,12 @@
-const {Sequelize} = require('sequelize');
+const { Sequelize } = require("sequelize");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const sequelize = new Sequelize(
-  "postgres://postgres:murad1979@localhost:5432/pharmacy2"
+  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
 ); // Example for postgres
 
-const model = {}
+const model = {};
 
 model.depo = require("../models/depo")(sequelize);
 model.medicine = require("../models/medicine")(sequelize);
@@ -18,16 +20,16 @@ model.depo.hasMany(model.medicine, { as: "medicines" });
 model.medicine.belongsTo(model.depo);
 model.order.belongsTo(model.user);
 model.user.hasMany(model.order);
-model.order.hasMany(model.orderDetail, {as:"orderDetails"});
+model.order.hasMany(model.orderDetail, { as: "orderDetails" });
 model.orderDetail.belongsTo(model.order);
 
-// sequelize
-//    .sync({ alter: true })
-//    .then(() => {
-//      console.log("Drop and re-sync db.");
-//    })
-//    .catch((err) => {
-//      console.log("Error:", err);
-//    });
+sequelize
+   .sync({ alter: true })
+   .then(() => {
+     console.log("Drop and re-sync db.");
+   })
+   .catch((err) => {
+     console.log("Error:", err);
+   });
 
-module.exports = {sequelize,model};
+module.exports = { sequelize, model };
