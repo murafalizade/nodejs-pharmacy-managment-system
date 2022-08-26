@@ -17,9 +17,9 @@ const doc = {
       description: 'Some description...',
     },
   },
-  host: 'localhost:3000',
+  host: 'medicine-crm.herokuapp.com',
   basePath: '/',
-  schemes: ['http', 'https'],
+  schemes: ['https'],
   consumes: ['application/json'],
   produces: ['application/json'],
 };
