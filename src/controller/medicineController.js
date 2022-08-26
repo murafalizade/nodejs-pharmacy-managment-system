@@ -63,7 +63,6 @@ module.exports.downloadImage = async (req, res) => {
   const file = `${process.cwd()}/public/uploads/${req.params.fileName}`;
   res.download(file); 
 }
-
 module.exports.getByPage = async (req, res) => {
   // #swagger.tags = ['Medicine']
   const { page, count } = req.query;
