@@ -13,7 +13,6 @@ services:
       - POSTGRES_USER=${DB_USER}
   api:
     container_name: api
-    restart: always
     build: .
     ports:
       - ${PORT}:${PORT}

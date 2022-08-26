@@ -9,7 +9,6 @@
     "start-gendoc": "node swagger.js",
     "server": "pm2 start src/index.js",
     "stop-server": "pm2 delete src/index.js",
-    "test": "jest --detectOpenHandles",
     "lint": "eslint --fix ./src/*.js"
   },
   "keywords": [],
@@ -41,6 +40,7 @@
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "sequelize-mock": "^0.10.2"
   }
 }
