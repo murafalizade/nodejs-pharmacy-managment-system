@@ -7,14 +7,15 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const sequelize = new Sequelize(
-  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,{
-   dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    }
-  }
+  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+  // {
+  //  dialectOptions: {
+  //     ssl: {
+  //       require: process.env.NODE_ENV=== 'production'? true : false,
+  //       rejectUnauthorized: process.env.NODE_ENV=== 'production'? false : true
+  //     }
+  //   }
+  // }
 ); // Example for postgres
 
 const model = {};

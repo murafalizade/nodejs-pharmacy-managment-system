@@ -52,7 +52,7 @@ app.use(
 );
 app.use(helmet());
 
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use('/api/v1', userRouter);
 app.use('/api/v1', orderRouter);
 app.use('/api/v1', medicineRouter);
