@@ -8,6 +8,6 @@ COPY ./src ./src
 
 RUN npm install --silent
 
-CMD npm run start-gendoc
+CMD npm run dev
 
 
