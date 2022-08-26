@@ -8,7 +8,7 @@
   "host": "medicine-crm.herokuapp.com",
   "basePath": "/",
   "schemes": [
-    "http" ],
+    "https" ],
   "securityDefinitions": {
     "apiKeyAuth": {
       "type": "apiKey",
