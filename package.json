@@ -8,7 +8,6 @@
     "start": "node src/index.js",
     "start-gendoc": "node swagger.js",
     "server": "pm2 start src/index.js",
-    "stop-server": "pm2 delete src/index.js",
     "lint": "eslint --fix ./src/*.js"
   },
   "keywords": [],
