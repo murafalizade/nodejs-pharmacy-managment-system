@@ -1,5 +1,5 @@
 const MedicineService = require("../service/medicineService");
-
+const AWS = require("aws-sdk");
 const medicineService = new MedicineService();
 
 module.exports.getAll = async (req, res) => {
