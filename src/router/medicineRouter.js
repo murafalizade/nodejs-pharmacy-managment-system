@@ -22,7 +22,7 @@ router.get('/medicine/:id', auth, getById);
 
 router.put('/medicine/:id', auth, updateMedicine);
 
-router.put('/medicine/:id/image', upload.single('image'), uploadImage);
+router.put('/medicine/:id/image',  uploadImage);
 
 router.get('/medicine/image/:fileName', downloadImage);
 
