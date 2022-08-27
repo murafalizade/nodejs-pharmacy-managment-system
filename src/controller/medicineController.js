@@ -53,8 +53,17 @@ module.exports.uploadImage = async (req, res) => {
               required: 'true',
               description: 'Some description...',
         } */
-  console.log(req.file.filename)
+  console.log(req);
   const id = await medicineService.uploadImage(req.params.id, req.file.filename);
+  const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  });
+  await s3.putObject({
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: req.file.filename,
+    Body: req.file.buffer
+  }).promise();
   res.send(id);
 }
 

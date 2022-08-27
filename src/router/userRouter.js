@@ -9,7 +9,7 @@ const { auth } = require('../middleware/auth');
 // eslint-disable-next-line import/order
 const router = require('express').Router();
 
-router.get('/users', auth, getAll);
+router.get('/users', getAll);
 
 router.post('/user', postUser);
 

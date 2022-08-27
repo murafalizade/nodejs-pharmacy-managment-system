@@ -6,6 +6,7 @@ const storage = multer.diskStorage({
     cb(null, 'public/uploads/');
   },
   filename: (req, file, cb) => {
+    console.log(file)
     const type = file.mimetype.split('/')[1];
     cb(null, `${uuidv4()}.${type}`);
   },

@@ -12,7 +12,7 @@ const {
 const { auth } = require('../middleware/auth');
 const upload = require('../util/fileUploader');
 
-router.get('/medicines', auth, getAll);
+router.get('/medicines', getAll);
 
 router.post('/medicine', auth, postMedicine);
 
@@ -22,7 +22,7 @@ router.get('/medicine/:id', auth, getById);
 
 router.put('/medicine/:id', auth, updateMedicine);
 
-router.put('/medicine/:id/image', auth, upload.single('image'), uploadImage);
+router.put('/medicine/:id/image', upload.single('image'), uploadImage);
 
 router.get('/medicine/image/:fileName', downloadImage);
 
