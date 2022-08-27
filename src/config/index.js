@@ -11,8 +11,8 @@ const sequelize = new Sequelize(
   {
    dialectOptions: {
       ssl: {
-        require: process.env.NODE_ENV=== 'production'? true : false,
-        rejectUnauthorized: process.env.NODE_ENV=== 'production'? false : true
+        require: true,
+        rejectUnauthorized: false
       }
     }
   }
